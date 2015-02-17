@@ -1,4 +1,4 @@
-{%- from 'logstash_forwarder/map.jinja' import logstash_forwarder with context %}
+{%- from 'logstash_forwarder/map.jinja' import logstash_forwarder with context -%}
 {
   "network": {
     "servers": [
@@ -21,7 +21,7 @@
           {%- endif %}
         {%- endfor %}
         ],
-      "fields": { 
+      "fields": {
         {%- for key, value in file_group.fields.iteritems() %}
           {%- if loop.last %}
             "{{key}}": "{{value}}"
