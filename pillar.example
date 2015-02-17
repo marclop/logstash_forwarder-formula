@@ -21,6 +21,8 @@ logstash_forwarder:
         log_to_syslog: false
         cert_path: /etc/ssl/certs/logstash-forwarder.crt
         log_to_syslog: true
+        pkg_url: http://download.elasticsearch.org/logstash-forwarder/packages/logstash-forwarder-0.3.1-1.x86_64.rpm
+        pkg_update: False
         spool_size: 500
         conf_path: /etc/logstash-forwarder/logstash-forwarder.conf
         cert_contents: |

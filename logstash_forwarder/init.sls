@@ -5,14 +5,19 @@
 # Do nothing unless the target is RedHat or Debian based
 
 {%- if grains['os_family'] == 'RedHat' or grains['os_family'] == 'Debian' %}
-include:
-  - .repo
+# IGNORE IMPORT FROM ELASTICSEARCH REPO (DOES NOT WORK)
+#include:
+  #- .repo
 
 logstash-forwarder-pkg:
-  pkg.latest:
-    - name: {{logstash_forwarder.pkg}}
-    - require:
-      - pkgrepo: logstash-forwarder-repo
+  pkg.installed:
+    - sources:
+      - logstash-forwarder: {{ logstash_forwarder.pkg_url }}
+    - allow_updated: {{ logstash_forwarder.pkg_update }}
+#  pkg.latest:
+#    - name: {{logstash_forwarder.pkg}}
+#    - require:
+#      - pkgrepo: logstash-forwarder-repo
 
 {%- if logstash_forwarder.cert_contents is defined %}
 logstash-forwarder-cert:
