@@ -34,7 +34,7 @@ logstash-forwarder-cert:
 
 logstash-forwarder-config:
   file.managed:
-    - name: /etc/logstash-forwarder
+    - name: {{ logstash_forwarder.conf_path }}
     - user: root
     - group: root
     - mode: 644
