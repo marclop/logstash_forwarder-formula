@@ -3,8 +3,10 @@
     'pkg': 'logstash-forwarder',
     'svc': 'logstash-forwarder',
     'cert_path': '/etc/ssl/certs/logstash-forwarder.crt',
+    'conf_path': '/etc/logstash-forwarder',
     'timeout': '15',
     'log_to_syslog': True,
+    'spool_size': 100,
     'init_file': 'salt://logstash_forwarder/files/logstash-forwarder.deb.init',
     'files': [
       {'paths': ['/var/log/syslog'], 'type': 'syslog'}
@@ -14,8 +16,10 @@
   	'pkg': 'logstash-forwarder',
   	'svc': 'logstash-forwarder',
   	'cert_path': '/etc/pki/tls/certs/logstash-forwarder.crt',
+    'conf_path': '/etc/logstash-forwarder',
     'timeout': 15,
     'log_to_syslog': True,
+    'spool_size': 100,
     'init_file': 'salt://logstash_forwarder/files/logstash-forwarder.rpm.init',
     'files': [
       {'paths': ['/var/log/messages'], 'type': 'syslog'}

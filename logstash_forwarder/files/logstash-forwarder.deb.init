@@ -28,9 +28,9 @@ DESC="log shipper"
 NAME=logstash-forwarder
 DAEMON=/opt/logstash-forwarder/bin/logstash-forwarder
 {%- if logstash_forwarder.log_to_syslog == True %}
-DAEMON_ARGS="-config /etc/logstash-forwarder -spool-size 100 {% if logstash_forwarder.log_to_syslog %}-log-to-syslog{%- endif %}"
+DAEMON_ARGS="-config {{ logstash_forwarder.conf_path }} -spool-size {{ logstash_forwarder.spool_size }} {% if logstash_forwarder.log_to_syslog %}-log-to-syslog{%- endif %}"
 {%- else %}
-DAEMON_ARGS="-config /etc/logstash-forwarder -spool-size 100"
+DAEMON_ARGS="-config {{ logstash_forwarder.conf_path }} -spool-size {{ logstash_forwarder.spool_size }}"
 {%- endif %}
 PIDFILE=/var/run/$NAME.pid
 SCRIPTNAME=/etc/init.d/$NAME

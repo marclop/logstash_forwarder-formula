@@ -1,5 +1,5 @@
 logstash_forwarder:
-        servers: 
+        servers:
             - logs.example.com:5000
         files:
             -
@@ -21,6 +21,8 @@ logstash_forwarder:
         log_to_syslog: false
         cert_path: /etc/ssl/certs/logstash-forwarder.crt
         log_to_syslog: true
+        spool_size: 500
+        conf_path: /etc/logstash-forwarder/logstash-forwarder.conf
         cert_contents: |
             -----BEGIN CERTIFICATE-----
             MIIDBzCCAe+gAwIBAgIJAImyMODCMdTFMA0GCSqGSIb3DQEBBQUAMBoxGDAWBgNV
