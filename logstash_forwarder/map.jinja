@@ -6,6 +6,8 @@
     'conf_path': '/etc/logstash-forwarder',
     'timeout': '15',
     'log_to_syslog': True,
+    'conf_replace': True,
+    'conf_path': '/etc/logstash-forwarder',
     'spool_size': 100,
     'init_file': 'salt://logstash_forwarder/files/logstash-forwarder.deb.init',
     'files': [
@@ -19,6 +21,8 @@
     'conf_path': '/etc/logstash-forwarder',
     'timeout': 15,
     'log_to_syslog': True,
+    'conf_replace': True,
+    'conf_path': '/etc/logstash-forwarder',
     'spool_size': 100,
     'init_file': 'salt://logstash_forwarder/files/logstash-forwarder.rpm.init',
     'files': [
