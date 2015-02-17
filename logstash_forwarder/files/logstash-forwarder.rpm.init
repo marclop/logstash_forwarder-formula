@@ -21,12 +21,12 @@ SCRIPTNAME=/etc/init.d/$NAME
 . /etc/init.d/functions
 
 [ -e /etc/sysconfig/logstash-forwarder ] && . /etc/sysconfig/logstash-forwarder
-DAEMON_ARGS="-config {{ logstash_forwarder.conf_path }} -spool-size {{ logstash_forwarder.spool_size }} {% if logstash_forwarder.log_to_syslog %}-log-to-syslog{%- endif %}"
+DAEMON_ARGS="-config {{ logstash_forwarder.conf_path }} -spool-size {{ logstash_forwarder.spool_size }}{% if logstash_forwarder.log_to_syslog %}-log-to-syslog{%- endif %}"
 
 start()
 {
   echo -n $"Starting $NAME: "
-  nohup $DAEMON $DAEMON_ARGS >/dev/null 2>&1 &
+  nohup $DAEMON $DAEMON_ARGS >> /var/log/logstash-forwarder 2>&1 &
   RETVAL=$?
   PID=$!
   echo $PID > $PIDFILE
