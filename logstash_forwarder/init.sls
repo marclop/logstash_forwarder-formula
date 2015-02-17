@@ -35,6 +35,8 @@ logstash-forwarder-cert:
 logstash-forwarder-config:
   file.managed:
     - name: {{ logstash_forwarder.conf_path }}
+    - makedirs: True
+    - replace: {{ logstash_forwarder.conf_replace }}
     - user: root
     - group: root
     - mode: 644

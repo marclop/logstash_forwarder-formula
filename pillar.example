@@ -25,6 +25,7 @@ logstash_forwarder:
         pkg_update: False
         spool_size: 500
         conf_path: /etc/logstash-forwarder/logstash-forwarder.conf
+        conf_replace: True
         cert_contents: |
             -----BEGIN CERTIFICATE-----
             MIIDBzCCAe+gAwIBAgIJAImyMODCMdTFMA0GCSqGSIb3DQEBBQUAMBoxGDAWBgNV
